@@ -8,7 +8,7 @@ DATA_FILE = 'data.json'
 EXPENSE_CATEGORIES = ['Їжа', 'Транспорт', 'Розваги', 'Комунальні', 'Інше']
 
 ADDING_EXPENSE_AMOUNT, ADDING_EXPENSE_CATEGORY, ADDING_EXPENSE_DATE = range(3)
-ADDING_INCOME_AMOUNT, ADDING_INCOME_CATEGORY, ADDING_INCOME_DATE = range(3, 6)
+ADDING_INCOME_AMOUNT, ADDING_INCOME_CATEGORY, ADDING_INCOME_DATE = range(3)
 
 def load_data():
     try:
@@ -76,7 +76,7 @@ async def add_expense_category(update: Update, context: ContextTypes.DEFAULT_TYP
 async def add_expense_date(update: Update, context: ContextTypes.DEFAULT_TYPE):
     date_text = update.message.text
     try:
-        date = datetime.strptime(date_text, '%Y-%м-%d') if date_text else datetime.now()
+        date = datetime.strptime(date_text, '%Y-%m-%d') if date_text else datetime.now()
     except ValueError:
         await update.message.reply_text('Неправильний формат дати. Будь ласка, введіть дату у форматі РРРР-ММ-ДД:')
         return ADDING_EXPENSE_DATE
@@ -88,7 +88,7 @@ async def add_expense_date(update: Update, context: ContextTypes.DEFAULT_TYPE):
     data[user_id]['expenses'].append({
         'amount': context.user_data['expense_amount'],
         'category': context.user_data['expense_category'],
-        'date': date.strftime('%Y-%м-%d')
+        'date': date.strftime('%Y-%m-%d')
     })
     save_data(data)
     await update.message.reply_text('Витрату додано!', reply_markup=get_keyboard())
@@ -118,7 +118,7 @@ async def add_income_category(update: Update, context: ContextTypes.DEFAULT_TYPE
 async def add_income_date(update: Update, context: ContextTypes.DEFAULT_TYPE):
     date_text = update.message.text
     try:
-        date = datetime.strptime(date_text, '%Y-%м-%d') if date_text else datetime.now()
+        date = datetime.strptime(date_text, '%Y-%m-%d') if date_text else datetime.now()
     except ValueError:
         await update.message.reply_text('Неправильний формат дати. Будь ласка, введіть дату у форматі РРРР-ММ-ДД:')
         return ADDING_INCOME_DATE
@@ -130,7 +130,7 @@ async def add_income_date(update: Update, context: ContextTypes.DEFAULT_TYPE):
     data[user_id]['incomes'].append({
         'amount': context.user_data['income_amount'],
         'category': context.user_data['income_category'],
-        'date': date.strftime('%Y-%м-%d')
+        'date': date.strftime('%Y-%m-%d')
     })
     save_data(data)
     await update.message.reply_text('Дохід додано!', reply_markup=get_keyboard())
@@ -269,3 +269,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
