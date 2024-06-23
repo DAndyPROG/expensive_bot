@@ -3,7 +3,7 @@ from datetime import datetime
 from telegram import Update, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters, ConversationHandler
 
-API_TOKEN = '7200841404:AAEa4pK99ZnqqXpmpsTimHUD0y-umWCZHKs'
+API_TOKEN = 'TOKEN_API'
 DATA_FILE = 'data.json'
 EXPENSE_CATEGORIES = ['Їжа', 'Транспорт', 'Розваги', 'Комунальні', 'Інше']
 
