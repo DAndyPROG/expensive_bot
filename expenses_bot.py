@@ -200,7 +200,6 @@ async def stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def clear_chat(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('Очищення чату...', reply_markup=get_keyboard())
-    # Here you can implement actual chat clearing if necessary
 
 async def back_to_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await start(update, context)
